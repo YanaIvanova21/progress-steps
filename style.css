@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex; /*розміщення блоків-дітей в одному рядку*/
+  flex-direction: column; /*розміщення блоків-дітей в один під одним*/
+  align-items: center; /*розміщення блоків-дітей посередині відносно боків*/
+  justify-content: center; /*розміщення блоків-дітей посередині відносно низу та верху*/
+  height: 100vh; /*надання розміри (висоти) для елемента body на 100% висоти сторінки браузера*/
+  overflow: hidden; /*приховує скрол-бар за замовчуванням*/
+  margin: 0;
+}
