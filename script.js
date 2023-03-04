@@ -7,9 +7,16 @@ let currentActiveCircle = 0;
 
 next.addEventListener("click", nextBtnOnClickEventHandler);
 
+prev.addEventListener("click", prevBtnOnClickEventHandler);
+
 function nextBtnOnClickEventHandler() {
   activateNextCircle();
   activateProgress();
+}
+
+function prevBtnOnClickEventHandler() {
+  deactivateCurrentCircle();
+  deactivateProgress();
 }
 
 function activateNextCircle() {
@@ -33,14 +40,15 @@ function activateProgress() {
   progress.style.width = progressPercentage + "%";
 }
 
-prev.addEventListener("click", prevBtnOnClickEventHandler);
-
-function prevBtnOnClickEventHandler() {
-  deactivateCurrentCircle();
-  deactivateProgress();
-}
-
 function deactivateCurrentCircle() {
+  if (currentActiveCircle < 2) {
+    prev.setAttribute("disabled", " ");
+  }
+
+  if (currentActiveCircle < circles.length) {
+    next.removeAttribute("disabled");
+  }
+
   if (currentActiveCircle < 2) {
     prev.setAttribute("disabled", " ");
     next.removeAttribute("disabled");
