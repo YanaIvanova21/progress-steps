@@ -12,10 +12,23 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>My Project</title>
+    <title>Progress Steps</title>
   </head>
   <body>
-    <h1>Project Template</h1>
+    <div class="container">
+      <div class="progress-container">
+        <div class="progress" id="progress"></div>
+        <!-- тут одночасне використання ід та класу може здатися надлишковим, але
+        на великому проекту - це бест пректіс -->
+        <div class="circle active">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+        <div class="circle">4</div>
+      </div>
+      <button class="btn" id="prev" disabled>Prev</button>
+      <button class="btn" id="next">Next</button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

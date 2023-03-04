@@ -1,16 +1,98 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap");
+
+:root {
+  --line-border-fill: rgb(113, 113, 222);
+  --line-border-empty: rgb(188, 188, 189);
+}
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Mulish", sans-serif;
   display: flex; /*розміщення блоків-дітей в одному рядку*/
-  flex-direction: column; /*розміщення блоків-дітей в один під одним*/
   align-items: center; /*розміщення блоків-дітей посередині відносно боків*/
   justify-content: center; /*розміщення блоків-дітей посередині відносно низу та верху*/
   height: 100vh; /*надання розміри (висоти) для елемента body на 100% висоти сторінки браузера*/
   overflow: hidden; /*приховує скрол-бар за замовчуванням*/
   margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /*спейс-бітвін допоміг розсунути 1, 2, 3, 4. */
+  position: relative; /* це потрібно, щоб спрацювало позішн абсолют для полоски з прогресом*/
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  /* top: 50%;
+  left: 0;
+  transform: translateY(-50%); */
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute; /*це потрібно, щоб полоску з прогресом "вийняти" з природнього порядку елементів на сторінців, бо без цього цифра 1 не може бути з самого краю зліва.*/
+  /* top: 50%;
+  left: 0;
+  transform: translateY(-50%); */
+  height: 4px;
+  width: 100%;
+  z-index: -2; /* це потрібно, щоб полоска з прогресом була позаду цифр і не перекривала їх */
+  /* transition: 0.4s ease; */
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(238, 240, 240);
+  border: 3px solid var(--line-border-empty);
+  color: var(--line-border-empty);
+  /* transition: 0.4s ease; */
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer; /* щоб коли мишку наводиш, то курсор був, як вказівний палець*/
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+  background-color: var(--line-border-fill);
+  color: white;
+}
+
+.btn:active {
+  transform: scale(
+    0.98
+  ); /*щоб коли натискаєш на кнопку, вона трохи зменшувалася*/
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed; /*щоб не було видно курсова при наведенні мишки на неактивну кнопку*/
 }
